@@ -1,3 +1,4 @@
+````markdown
 # Scalable WordFish Implementation in PyTorch
 
 This repository contains a memory-efficient and scalable Python implementation of the WordFish scaling model, designed for large, sparse datasets. It is built with PyTorch and is optimized for training on GPUs or Google's TPUs.
@@ -21,7 +22,7 @@ WordFish is a statistical model used to estimate latent one-dimensional traits (
 1.  Clone the repository to your local machine:
     ```bash
     git clone https://github.com/CSS-Laboratory/Wordfish.git
-    cd Wordfish
+    cd WordFish
     ```
 
 2.  Install the required packages using pip:
@@ -75,3 +76,41 @@ print(item_traits_df)
 
 # 5. Visualize the results
 wf_model.wordplot(highlighted=3, standarized=True)
+````
+
+-----
+
+## 🧠 How It Works
+
+The model assumes that the count $y\_{ij}$ of interactions between user $i$ and item $j$ follows a Poisson distribution:
+
+$$ y_{ij} \sim \text{Poisson}(\lambda_{ij}) $$
+
+The expected count, $\\lambda\_{ij}$, is modeled as a function of latent parameters:
+
+$$ \lambda_{ij} = \exp(\alpha_i + \psi_j + \theta_i \beta_j) $$
+
+Where:
+
+  * $\\alpha\_i$: A fixed effect for user $i$.
+  * $\\psi\_j$: A fixed effect for item $j$ (capturing overall popularity).
+  * $\\theta\_i$: The latent position of user $i$ on a 1D scale.
+  * $\\beta\_j$: The latent position of item $j$ on the same scale. This is the primary value of interest.
+
+The model is trained by maximizing the log-likelihood of the observed data. To make this computationally feasible on large datasets, the full likelihood is approximated using a **negative sampling** loss function during mini-batch gradient descent.
+
+-----
+
+## ✨ TPU Support (Google Colab)
+
+This code is designed to work out-of-the-box on a Google Colab TPU runtime.
+
+1.  In your Colab notebook, select `Runtime > Change runtime type` and choose **TPU** as the hardware accelerator.
+2.  The script will automatically detect the TPU environment via the `torch_xla` library and move all computations to the TPU device.
+3.  For optimal performance, use a larger `batch_size` (e.g., `2048`, `4096`) to fully utilize the TPU cores.
+
+-----
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.

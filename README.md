@@ -20,8 +20,8 @@ WordFish is a statistical model used to estimate latent one-dimensional traits (
 
 1.  Clone the repository to your local machine:
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clone https://github.com/CSS-Laboratory/Wordfish.git
+    cd Wordfish
     ```
 
 2.  Install the required packages using pip:

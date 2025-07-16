@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+torch
+tqdm
+
+# For TPU support on Google Cloud / Colab, torch_xla is required.
+# It is typically pre-installed in Colab TPU runtimes.
+# For local installation, follow the official PyTorch XLA instructions:
+# https://github.com/pytorch/xla
+torch_xla

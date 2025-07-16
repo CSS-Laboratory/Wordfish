@@ -1,4 +1,3 @@
-````markdown
 # Scalable WordFish Implementation in PyTorch
 
 This repository contains a memory-efficient and scalable Python implementation of the WordFish scaling model, designed for large, sparse datasets. It is built with PyTorch and is optimized for training on GPUs or Google's TPUs.
@@ -21,8 +20,8 @@ WordFish is a statistical model used to estimate latent one-dimensional traits (
 
 1.  Clone the repository to your local machine:
     ```bash
-    git clone https://github.com/CSS-Laboratory/Wordfish.git
-    cd WordFish
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    cd your-repo-name
     ```
 
 2.  Install the required packages using pip:
@@ -76,8 +75,7 @@ print(item_traits_df)
 
 # 5. Visualize the results
 wf_model.wordplot(highlighted=3, standarized=True)
-````
-
+```
 -----
 
 ## 🧠 How It Works
